@@ -832,7 +832,7 @@ export const ALL_CATEGORIES_DATA: CategoryDetail[] = [
     products: [
       {
         id: 'basmati-rice',
-        image: 'https://images.unsplash.com/photo-1586201375761-83865001e8ac?auto=format&fit=crop&q=80&w=600&h=400',
+        image: 'https://images.unsplash.com/photo-1536304929831-ee1ca9d44906?auto=format&fit=crop&q=80&w=600&h=400',
         name: 'Premium Basmati Rice',
         category: 'food',
         subcategory: 'Grains & Rice',

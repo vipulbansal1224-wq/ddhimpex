@@ -23,7 +23,7 @@ export default function FoodProductsPage({  }: PageProps) {  const { openRFQ } =
         subtitle="Fast-moving consumer packaged food items carefully manufactured and selected to international quality standards under dynamic export brands."
         categoryTag="FMCG & CONSUMER PACKAGED FOODS"
         images={[
-          'https://images.unsplash.com/photo-1586201375761-83865001e8ac?auto=format&fit=crop&q=80&w=1600&h=600',
+          'https://images.unsplash.com/photo-1536304929831-ee1ca9d44906?auto=format&fit=crop&q=80&w=1600&h=600',
           'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&q=80&w=1600&h=600',
           'https://images.unsplash.com/photo-1563822249548-9a72b6353cd1?auto=format&fit=crop&q=80&w=1600&h=600'
         ]}

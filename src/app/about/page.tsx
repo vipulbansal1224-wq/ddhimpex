@@ -4,6 +4,7 @@ import { useRFQ } from '@/context/RFQContext';
 import React from 'react';
 import Link from 'next/link';
 import { Building2, ShieldCheck, Factory, Globe, Award, CheckCircle2, Target, Eye, Users, FileText } from 'lucide-react';
+import { CategoryHeroSlider } from '@/components/CategoryHeroSlider';
 
 interface PageProps {
   
@@ -15,20 +16,16 @@ export default function AboutPage({  }: PageProps) {  const { openRFQ } = useRFQ
     <div className="pt-24 pb-20 bg-slate-950 text-white min-h-screen">
       
       {/* Header Banner */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 border-b border-slate-800">
-        <div className="max-w-3xl space-y-4">
-          <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-semibold uppercase tracking-wider">
-            <Building2 className="w-3.5 h-3.5" />
-            <span>CORPORATE PROFILE</span>
-          </div>
-          <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-white">
-            About DDH Impex Group
-          </h1>
-          <p className="text-slate-300 text-lg leading-relaxed">
-            Headquartered in <strong className="text-amber-400">Ludhiana, Punjab, India</strong>, DDH Impex has established itself as one of the fastest growing industrial business groups, delivering world-class EPC engineering and chemical supply chain solutions.
-          </p>
-        </div>
-      </div>
+            <CategoryHeroSlider 
+        title="About DDH Impex Group"
+        subtitle="Headquartered in Ludhiana, Punjab, India, DDH Impex has established itself as one of the fastest growing industrial business groups, delivering world-class EPC engineering and chemical supply chain solutions."
+        categoryTag="CORPORATE PROFILE"
+        images={[
+          'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1600&h=600',
+          'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=1600&h=600',
+          'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1600&h=600'
+        ]}
+      />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 space-y-16">
         
