@@ -1,4 +1,5 @@
 'use client';
+import { useRFQ } from '@/context/RFQContext';
 
 import React from 'react';
 import { useParams } from 'next/navigation';
@@ -8,10 +9,11 @@ import { CategoryHeroSlider } from '@/components/CategoryHeroSlider';
 import { Factory, CheckCircle2, ShieldCheck, ArrowRight, FileText, Cpu, BarChart3 } from 'lucide-react';
 
 interface EPCBranchPageProps {
-  onOpenRFQ?: (productName?: string) => void;
+  
 }
 
-export default function EPCBranchPage({ onOpenRFQ = () => {} }: EPCBranchPageProps) {
+export default function EPCBranchPage({  }: EPCBranchPageProps) {  const { openRFQ } = useRFQ();
+
   const params = useParams();
   const branchSlug = params?.branch as string;
 
@@ -27,7 +29,7 @@ export default function EPCBranchPage({ onOpenRFQ = () => {} }: EPCBranchPagePro
         subtitle={service.shortDesc}
         categoryTag="DDH IMPEX EPC & ENGINEERING"
         images={mediaData.sliderImages}
-        onOpenRFQ={() => onOpenRFQ(service.title)}
+        
       />
 
       {/* Main Content */}
@@ -77,7 +79,7 @@ export default function EPCBranchPage({ onOpenRFQ = () => {} }: EPCBranchPagePro
             </div>
 
             <button
-              onClick={() => onOpenRFQ(service.title)}
+              onClick={() => (service.title)}
               className="w-full py-3.5 bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xs uppercase tracking-widest rounded shadow transition-colors flex items-center justify-center space-x-2"
             >
               <FileText className="w-4 h-4" />

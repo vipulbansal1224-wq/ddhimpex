@@ -1,36 +1,58 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { X, Send, CheckCircle2, FileText, Printer, Mail, ShieldCheck, Download } from 'lucide-react';
+import { useRFQ } from '@/context/RFQContext';
 
-interface RFQModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-  initialProduct?: string;
-}
-
-export const RFQModal: React.FC<RFQModalProps> = ({ isOpen, onClose, initialProduct = '' }) => {
+export const RFQModal: React.FC = () => {
+  const { rfqOpen, selectedProduct, closeRFQ } = useRFQ();
+  
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
     company: '',
-    productOrService: initialProduct,
+    productOrService: '',
     quantity: '20 Metric Tons / LSTK Package',
     destination: 'Port of Hamburg / CIF Destination',
     message: ''
   });
 
+  useEffect(() => {
+    if (selectedProduct) {
+      setFormData(prev => ({ ...prev, productOrService: selectedProduct }));
+    }
+  }, [selectedProduct]);
+
   const [submitted, setSubmitted] = useState(false);
   const [proposalId, setProposalId] = useState('');
 
-  if (!isOpen) return null;
+  if (!rfqOpen) return null;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const generatedId = 'DDH-PROP-' + Math.floor(100000 + Math.random() * 900000);
     setProposalId(generatedId);
     setSubmitted(true);
+
+    const subject = encodeURIComponent(`RFQ / Proposal Request: ${formData.productOrService} [${generatedId}]`);
+    const body = encodeURIComponent(`
+RFQ Details:
+Product/Service: ${formData.productOrService}
+Quantity: ${formData.quantity}
+Destination: ${formData.destination}
+
+Requester Info:
+Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone}
+Company: ${formData.company}
+
+Notes:
+${formData.message}
+    `);
+    
+    window.location.href = `mailto:info@ddhimpex.com?subject=${subject}&body=${body}`;
   };
 
   const handlePrint = () => {
@@ -44,7 +66,7 @@ export const RFQModal: React.FC<RFQModalProps> = ({ isOpen, onClose, initialProd
         
         {/* Close Button */}
         <button 
-          onClick={onClose}
+          onClick={closeRFQ}
           className="absolute top-4 right-4 p-2 rounded-lg bg-slate-100 text-slate-500 hover:text-slate-900 hover:bg-slate-200 transition-colors"
         >
           <X className="w-5 h-5" />
@@ -90,7 +112,7 @@ export const RFQModal: React.FC<RFQModalProps> = ({ isOpen, onClose, initialProd
               <div className="space-y-2">
                 <div className="flex justify-between py-1 border-b border-slate-200">
                   <span className="text-slate-500">Target Product / Service:</span>
-                  <span className="font-bold text-slate-900">{formData.productOrService || initialProduct}</span>
+                  <span className="font-bold text-slate-900">{formData.productOrService || selectedProduct}</span>
                 </div>
                 <div className="flex justify-between py-1 border-b border-slate-200">
                   <span className="text-slate-500">Requested Volume / Scope:</span>
@@ -129,7 +151,7 @@ export const RFQModal: React.FC<RFQModalProps> = ({ isOpen, onClose, initialProd
               <button 
                 onClick={() => {
                   setSubmitted(false);
-                  onClose();
+                  closeRFQ();
                 }}
                 className="px-5 py-2.5 rounded-lg bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-xs uppercase tracking-wider transition-colors"
               >

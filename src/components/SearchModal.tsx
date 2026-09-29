@@ -1,4 +1,5 @@
 'use client';
+import { useRFQ } from '@/context/RFQContext';
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
@@ -9,10 +10,10 @@ import { Search, X, Package, Factory, ArrowRight, Tag } from 'lucide-react';
 interface SearchModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onOpenRFQ: (productName?: string) => void;
+  
 }
 
-export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose, onOpenRFQ }) => {
+export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => {
   const [query, setQuery] = useState('');
 
   useEffect(() => {
@@ -106,7 +107,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose, onOpe
                         <button
                           onClick={() => {
                             onClose();
-                            onOpenRFQ(product.name);
+                            (product.name);
                           }}
                           className="px-3 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs uppercase tracking-wider flex items-center space-x-1"
                         >

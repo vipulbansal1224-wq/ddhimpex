@@ -1,14 +1,16 @@
 'use client';
+import { useRFQ } from '@/context/RFQContext';
 
 import React from 'react';
 import { PRODUCTS_DATA } from '@/data/productsData';
 import { Sparkles, Beaker, ArrowRight } from 'lucide-react';
 
 interface PageProps {
-  onOpenRFQ?: (productName?: string) => void;
+  
 }
 
-export default function AcrylatePage({ onOpenRFQ = () => {} }: PageProps) {
+export default function AcrylatePage({  }: PageProps) {  const { openRFQ } = useRFQ();
+
   const acrylateProducts = PRODUCTS_DATA.filter(p => p.subcategory === 'Acrylate');
 
   return (
@@ -54,7 +56,7 @@ export default function AcrylatePage({ onOpenRFQ = () => {} }: PageProps) {
                     <td className="py-3.5 px-4 text-xs">{p.packingType}</td>
                     <td className="py-3.5 px-4 text-right">
                       <button
-                        onClick={() => onOpenRFQ(p.name)}
+                        onClick={() => (p.name)}
                         className="px-3 py-1.5 rounded bg-[#0228d2] hover:bg-blue-700 text-white font-bold text-xs uppercase tracking-wider inline-flex items-center space-x-1"
                       >
                         <span>RFQ</span>

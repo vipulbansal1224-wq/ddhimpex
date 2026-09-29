@@ -1,17 +1,18 @@
 'use client';
+import { useRFQ } from '@/context/RFQContext';
 
 import React, { useState } from 'react';
 import { PRODUCTS_DATA, ProductItem } from '@/data/productsData';
 import { Package, Search, Filter, ArrowRight, ShieldCheck, Beaker, Sparkles, Tag } from 'lucide-react';
 
 interface ProductsGridProps {
-  onOpenRFQ: (productName?: string) => void;
+  
   limit?: number;
   showCategoryTabs?: boolean;
 }
 
 export const ProductsGrid: React.FC<ProductsGridProps> = ({ 
-  onOpenRFQ, 
+   
   limit,
   showCategoryTabs = true 
 }) => {
@@ -173,7 +174,7 @@ export const ProductsGrid: React.FC<ProductsGridProps> = ({
 
                 {/* RFQ Trigger */}
                 <button
-                  onClick={() => onOpenRFQ(product.name)}
+                  onClick={() => (product.name)}
                   className="w-full py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-amber-500 hover:text-slate-950 text-slate-200 font-bold text-xs uppercase tracking-wider border border-slate-800 hover:border-amber-500 transition-all flex items-center justify-center space-x-2"
                 >
                   <span>Request RFQ / Quote</span>

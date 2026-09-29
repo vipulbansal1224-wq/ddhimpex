@@ -1,14 +1,16 @@
 'use client';
+import { useRFQ } from '@/context/RFQContext';
 
 import React from 'react';
 import { ProductsGrid } from '@/components/ProductsGrid';
 import { Package } from 'lucide-react';
 
 interface PageProps {
-  onOpenRFQ?: (productName?: string) => void;
+  
 }
 
-export default function ProductsPage({ onOpenRFQ = () => {} }: PageProps) {
+export default function ProductsPage({  }: PageProps) {  const { openRFQ } = useRFQ();
+
   return (
     <div className="pt-24 pb-20 bg-slate-950 text-white min-h-screen">
       
@@ -28,7 +30,7 @@ export default function ProductsPage({ onOpenRFQ = () => {} }: PageProps) {
         </div>
       </div>
 
-      <ProductsGrid onOpenRFQ={onOpenRFQ} showCategoryTabs={true} />
+      <ProductsGrid  showCategoryTabs={true} />
     </div>
   );
 }

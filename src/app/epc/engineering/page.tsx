@@ -1,14 +1,16 @@
 'use client';
+import { useRFQ } from '@/context/RFQContext';
 
 import React from 'react';
 import Link from 'next/link';
 import { Cpu, CheckCircle2, ShieldCheck, FileText, ArrowRight, Layers, Settings, Wrench } from 'lucide-react';
 
 interface PageProps {
-  onOpenRFQ?: (productName?: string) => void;
+  
 }
 
-export default function EngineeringPage({ onOpenRFQ = () => {} }: PageProps) {
+export default function EngineeringPage({  }: PageProps) {  const { openRFQ } = useRFQ();
+
   return (
     <div className="pt-24 pb-20 bg-slate-950 text-white min-h-screen">
       
@@ -90,7 +92,7 @@ export default function EngineeringPage({ onOpenRFQ = () => {} }: PageProps) {
             </div>
 
             <button
-              onClick={() => onOpenRFQ('Basic & Detailed Engineering')}
+              onClick={() => ('Basic & Detailed Engineering')}
               className="w-full py-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center space-x-2"
             >
               <FileText className="w-4 h-4" />

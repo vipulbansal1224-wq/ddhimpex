@@ -1,4 +1,5 @@
 'use client';
+import { useRFQ } from '@/context/RFQContext';
 
 import React from 'react';
 import Link from 'next/link';
@@ -9,15 +10,16 @@ import { ContactSection } from '@/components/ContactSection';
 import { Factory, Sparkles, Package, ArrowRight, CheckCircle2 } from 'lucide-react';
 
 interface PageProps {
-  onOpenRFQ?: (productName?: string) => void;
+  
 }
 
-export default function Home({ onOpenRFQ = () => {} }: PageProps) {
+export default function Home({  }: PageProps) {  const { openRFQ } = useRFQ();
+
   return (
     <div className="w-full bg-white text-slate-900">
       
       {/* 1. Hero Slider with 5 Authentic Banners & Swiper Thumbnails */}
-      <HeroSlider onOpenRFQ={() => onOpenRFQ()} />
+      <HeroSlider />
 
       {/* 2. Mid Part: About DDH Impex, Vision & Mission with Original Assets */}
       <MidPart />
@@ -138,7 +140,7 @@ export default function Home({ onOpenRFQ = () => {} }: PageProps) {
       </section>
 
       {/* 4. Products Grid */}
-      <ProductsGrid onOpenRFQ={onOpenRFQ} limit={6} />
+      <ProductsGrid limit={6} />
 
       {/* 5. Contact Section */}
       <ContactSection />

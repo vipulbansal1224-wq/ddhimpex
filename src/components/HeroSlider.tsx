@@ -1,14 +1,15 @@
 'use client';
+import { useRFQ } from '@/context/RFQContext';
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 
 interface HeroSliderProps {
-  onOpenRFQ?: () => void;
+  
 }
 
-export const HeroSlider: React.FC<HeroSliderProps> = ({ onOpenRFQ = () => {} }) => {
+export const HeroSlider: React.FC<HeroSliderProps> = ({  }) => {
   const [activeSlide, setActiveSlide] = useState(0);
 
   const bannerSlides = [
@@ -100,7 +101,7 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({ onOpenRFQ = () => {} }) 
                   </Link>
 
                   <button
-                    onClick={onOpenRFQ}
+                    onClick={openRFQ}
                     className="inline-flex items-center space-x-2 bg-white hover:bg-slate-100 text-slate-950 text-sm font-extrabold uppercase tracking-widest px-6 py-3.5 rounded shadow transition-all"
                   >
                     <span>Get Quote</span>

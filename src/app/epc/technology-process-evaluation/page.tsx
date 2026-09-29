@@ -1,13 +1,15 @@
 'use client';
+import { useRFQ } from '@/context/RFQContext';
 
 import React from 'react';
 import { BarChart3, CheckCircle2, ShieldCheck, FileText, ArrowRight, Activity, DollarSign, Lock, RefreshCw } from 'lucide-react';
 
 interface PageProps {
-  onOpenRFQ?: (productName?: string) => void;
+  
 }
 
-export default function ProcessEvaluationPage({ onOpenRFQ = () => {} }: PageProps) {
+export default function ProcessEvaluationPage({  }: PageProps) {  const { openRFQ } = useRFQ();
+
   return (
     <div className="pt-24 pb-20 bg-slate-950 text-white min-h-screen">
       
@@ -113,7 +115,7 @@ export default function ProcessEvaluationPage({ onOpenRFQ = () => {} }: PageProp
             <p className="text-xs text-slate-400 mt-1">Our expert consultants evaluate your chemical processing plant or manufacturing workflows.</p>
           </div>
           <button
-            onClick={() => onOpenRFQ('Technology & Process Evaluation Audit')}
+            onClick={() => ('Technology & Process Evaluation Audit')}
             className="px-6 py-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs uppercase tracking-wider transition-colors shrink-0"
           >
             Request Technical Audit

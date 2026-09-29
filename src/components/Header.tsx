@@ -1,4 +1,5 @@
 'use client';
+import { useRFQ } from '@/context/RFQContext';
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -6,11 +7,11 @@ import { usePathname } from 'next/navigation';
 import { Mail, ChevronDown, Menu, X, Search, FileText, Factory, Package, Sparkles } from 'lucide-react';
 
 interface HeaderProps {
-  onOpenRFQ?: (productName?: string) => void;
+  
   onOpenSearch?: () => void;
 }
 
-export const Header: React.FC<HeaderProps> = ({ onOpenRFQ = () => {}, onOpenSearch = () => {} }) => {
+export const Header: React.FC<HeaderProps> = ({ onOpenSearch = () => {} }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [epcOpen, setEpcOpen] = useState(false);
   const [supplyChainOpen, setSupplyChainOpen] = useState(false);
@@ -44,7 +45,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenRFQ = () => {}, onOpenSear
               <span>Search Database</span>
             </button>
             <button
-              onClick={() => onOpenRFQ()}
+              onClick={() => openRFQ()}
               className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold px-3 py-1 rounded text-xs uppercase tracking-wider transition-colors shadow"
             >
               Get Quote
@@ -104,7 +105,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenRFQ = () => {}, onOpenSear
 
             {epcOpen && (
               <div className="absolute top-full left-0 w-80 bg-white border border-slate-200 shadow-2xl rounded-b-xl py-3 animate-in fade-in duration-150 z-50">
-                <div className="px-4 py-1.5 text-xs font-black text-[#0228d2] uppercase border-b border-slate-100 flex items-center justify-between">
+                <div className="px-4 py-2 mt-1 mx-4 h-28 rounded-lg overflow-hidden relative"><img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=400&h=200" alt="EPC Division" className="object-cover w-full h-full hover:scale-110 transition-transform duration-500 absolute inset-0 -z-10" /></div><div className="px-4 py-1.5 mt-2 text-xs font-black text-[#0228d2] uppercase border-b border-slate-100 flex items-center justify-between">
                   <span>Engineering Services</span>
                   <Factory className="w-3.5 h-3.5 text-[#0228d2]" />
                 </div>
@@ -168,7 +169,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenRFQ = () => {}, onOpenSear
                 <div>
                   <div className="text-xs font-black text-[#0228d2] uppercase tracking-wider border-b border-slate-200 pb-2 mb-3 flex items-center justify-between">
                     <span>Industrial Chemicals</span>
-                    <Package className="w-3.5 h-3.5 text-[#0228d2]" />
+                    <Package className="w-3.5 h-3.5 text-[#0228d2]" /></div><div className="mb-3 h-24 rounded-lg overflow-hidden relative border border-slate-200"><img src="https://images.unsplash.com/photo-1618055627670-381e4b855be7?auto=format&fit=crop&q=80&w=400&h=200" alt="Industrial Chemicals" className="object-cover w-full h-full hover:scale-105 transition-transform duration-500" />
                   </div>
                   <ul className="space-y-1 text-xs text-slate-700 font-semibold">
                     <li><Link href="/products/mining-chemicals" className="block py-1 hover:text-[#0228d2] hover:bg-slate-50 px-1 rounded transition-colors">• Mining Chemicals (MIBC, MEK)</Link></li>
@@ -190,7 +191,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenRFQ = () => {}, onOpenSear
                 <div>
                   <div className="text-xs font-black text-[#0228d2] uppercase tracking-wider border-b border-slate-200 pb-2 mb-3 flex items-center justify-between">
                     <span>Speciality Chemicals</span>
-                    <Sparkles className="w-3.5 h-3.5 text-[#0228d2]" />
+                    <Sparkles className="w-3.5 h-3.5 text-[#0228d2]" /></div><div className="mb-3 h-24 rounded-lg overflow-hidden relative border border-slate-200"><img src="https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?auto=format&fit=crop&q=80&w=400&h=200" alt="Speciality Chemicals" className="object-cover w-full h-full hover:scale-105 transition-transform duration-500" />
                   </div>
                   <ul className="space-y-1 text-xs text-slate-700 font-semibold">
                     <li><Link href="/products/acrylate" className="block py-1 hover:text-[#0228d2] hover:bg-slate-50 px-1 rounded transition-colors">• Acrylate (2-EHA, MAA, PMMA)</Link></li>

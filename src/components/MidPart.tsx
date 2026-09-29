@@ -13,8 +13,8 @@ export const MidPart: React.FC = () => {
           <div className="lg:col-span-6">
             <div className="relative rounded-2xl overflow-hidden shadow-xl border border-slate-200">
               <img 
-                src="/xelassets/xelgs/about.png" 
-                alt="About DDH Impex" 
+                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1200&h=800"
+                alt="DDH Impex Corporate Industrial Engineering" 
                 className="w-full h-auto object-cover hover:scale-102 transition-transform duration-500"
               />
             </div>

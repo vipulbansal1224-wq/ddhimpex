@@ -1,14 +1,16 @@
 'use client';
+import { useRFQ } from '@/context/RFQContext';
 
 import React from 'react';
 import { PRODUCTS_DATA } from '@/data/productsData';
 import { Sparkles, ShieldCheck, Tag, ArrowRight, Beaker } from 'lucide-react';
 
 interface PageProps {
-  onOpenRFQ?: (productName?: string) => void;
+  
 }
 
-export default function SpecialtyChemicalsPage({ onOpenRFQ = () => {} }: PageProps) {
+export default function SpecialtyChemicalsPage({  }: PageProps) {  const { openRFQ } = useRFQ();
+
   const specialtyProducts = PRODUCTS_DATA.filter(p => p.category === 'specialty');
 
   return (
@@ -59,7 +61,7 @@ export default function SpecialtyChemicalsPage({ onOpenRFQ = () => {} }: PagePro
                     <td className="py-4 px-4 text-xs text-slate-300">{prod.applications[0]}</td>
                     <td className="py-4 px-4 text-right">
                       <button
-                        onClick={() => onOpenRFQ(prod.name)}
+                        onClick={() => (prod.name)}
                         className="px-3.5 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs uppercase tracking-wider transition-colors inline-flex items-center space-x-1"
                       >
                         <span>RFQ</span>

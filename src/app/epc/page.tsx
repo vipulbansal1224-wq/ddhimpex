@@ -1,4 +1,5 @@
 'use client';
+import { useRFQ } from '@/context/RFQContext';
 
 import React from 'react';
 import Link from 'next/link';
@@ -6,10 +7,11 @@ import { EPCSection } from '@/components/EPCSection';
 import { Factory, Cpu, BarChart3, Zap, Truck, ArrowRight, ShieldCheck, FileText } from 'lucide-react';
 
 interface PageProps {
-  onOpenRFQ?: (productName?: string) => void;
+  
 }
 
-export default function EPCPage({ onOpenRFQ = () => {} }: PageProps) {
+export default function EPCPage({  }: PageProps) {  const { openRFQ } = useRFQ();
+
   return (
     <div className="pt-24 pb-20 bg-slate-950 text-white min-h-screen">
       

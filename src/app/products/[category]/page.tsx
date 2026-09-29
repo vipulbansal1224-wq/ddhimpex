@@ -1,4 +1,5 @@
 'use client';
+import { useRFQ } from '@/context/RFQContext';
 
 import React from 'react';
 import { useParams } from 'next/navigation';
@@ -8,10 +9,11 @@ import { CategoryHeroSlider } from '@/components/CategoryHeroSlider';
 import { Beaker, Tag, ArrowRight, ShieldCheck, FileText, CheckCircle2 } from 'lucide-react';
 
 interface CategoryPageProps {
-  onOpenRFQ?: (productName?: string) => void;
+  
 }
 
-export default function CategoryPage({ onOpenRFQ = () => {} }: CategoryPageProps) {
+export default function CategoryPage({  }: CategoryPageProps) {  const { openRFQ } = useRFQ();
+
   const params = useParams();
   const categorySlug = params?.category as string;
 
@@ -27,7 +29,7 @@ export default function CategoryPage({ onOpenRFQ = () => {} }: CategoryPageProps
         subtitle={categoryDetail.heroSubtitle}
         categoryTag={`DDH IMPEX ${categoryDetail.category.toUpperCase()} DIVISION`}
         images={mediaData.sliderImages}
-        onOpenRFQ={() => onOpenRFQ(categoryDetail.name)}
+        
       />
 
       {/* Main Content */}
@@ -116,7 +118,7 @@ export default function CategoryPage({ onOpenRFQ = () => {} }: CategoryPageProps
                   {/* Quote Trigger */}
                   <div className="p-6 pt-0">
                     <button
-                      onClick={() => onOpenRFQ(prod.name)}
+                      onClick={() => (prod.name)}
                       className="w-full py-3 rounded-xl bg-[#0228d2] hover:bg-blue-700 text-white font-extrabold text-xs uppercase tracking-wider transition-colors shadow flex items-center justify-center space-x-2"
                     >
                       <FileText className="w-4 h-4" />
@@ -154,7 +156,7 @@ export default function CategoryPage({ onOpenRFQ = () => {} }: CategoryPageProps
                     <td className="py-3.5 px-4">{item.packingType}</td>
                     <td className="py-3.5 px-4 text-right">
                       <button
-                        onClick={() => onOpenRFQ(item.name)}
+                        onClick={() => (item.name)}
                         className="px-3 py-1.5 rounded bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold uppercase text-[11px] inline-flex items-center space-x-1 shadow"
                       >
                         <span>RFQ</span>
@@ -177,7 +179,7 @@ export default function CategoryPage({ onOpenRFQ = () => {} }: CategoryPageProps
             </p>
           </div>
           <button
-            onClick={() => onOpenRFQ(categoryDetail.name)}
+            onClick={() => (categoryDetail.name)}
             className="px-6 py-3.5 bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xs uppercase tracking-widest rounded shadow transition-colors shrink-0"
           >
             Generate Proposal Now

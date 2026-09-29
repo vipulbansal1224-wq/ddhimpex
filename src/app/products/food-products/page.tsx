@@ -1,14 +1,16 @@
 'use client';
+import { useRFQ } from '@/context/RFQContext';
 
 import React from 'react';
 import { PRODUCTS_DATA } from '@/data/productsData';
 import { Package, Globe, Tag, ArrowRight, CheckCircle2 } from 'lucide-react';
 
 interface PageProps {
-  onOpenRFQ?: (productName?: string) => void;
+  
 }
 
-export default function FoodProductsPage({ onOpenRFQ = () => {} }: PageProps) {
+export default function FoodProductsPage({  }: PageProps) {  const { openRFQ } = useRFQ();
+
   const foodProducts = PRODUCTS_DATA.filter(p => p.category === 'food');
 
   return (
@@ -58,7 +60,7 @@ export default function FoodProductsPage({ onOpenRFQ = () => {} }: PageProps) {
               </div>
 
               <button
-                onClick={() => onOpenRFQ(prod.name)}
+                onClick={() => (prod.name)}
                 className="w-full py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center space-x-2"
               >
                 <span>Request Food Export Sample / Quote</span>

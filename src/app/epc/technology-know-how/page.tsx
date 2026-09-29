@@ -1,13 +1,15 @@
 'use client';
+import { useRFQ } from '@/context/RFQContext';
 
 import React from 'react';
 import { Zap, Wifi, Sun, Droplets, Snowflake, Sprout, ShieldCheck, FileText } from 'lucide-react';
 
 interface PageProps {
-  onOpenRFQ?: (productName?: string) => void;
+  
 }
 
-export default function TechKnowHowPage({ onOpenRFQ = () => {} }: PageProps) {
+export default function TechKnowHowPage({  }: PageProps) {  const { openRFQ } = useRFQ();
+
   return (
     <div className="pt-24 pb-20 bg-slate-950 text-white min-h-screen">
       
@@ -94,7 +96,7 @@ export default function TechKnowHowPage({ onOpenRFQ = () => {} }: PageProps) {
 
         <div className="text-center pt-8">
           <button
-            onClick={() => onOpenRFQ('Infrastructure & Tech Know-How Master Planning')}
+            onClick={() => ('Infrastructure & Tech Know-How Master Planning')}
             className="px-8 py-4 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold text-sm uppercase tracking-wider transition-colors shadow-lg shadow-amber-500/20"
           >
             Consult Infrastructure Master Planner
