@@ -17,6 +17,8 @@ export const CategoryHeroSlider: React.FC<CategoryHeroSliderProps> = ({
   subtitle,
   categoryTag,
   images }) => {
+  const { openRFQ } = useRFQ();
+
   const [activeIdx, setActiveIdx] = useState(0);
 
   const slideImages = images && images.length > 0 ? images : [
@@ -62,7 +64,7 @@ export const CategoryHeroSlider: React.FC<CategoryHeroSliderProps> = ({
 
               <div className="pt-3 flex items-center space-x-4">
                 <button
-                  onClick={openRFQ}
+                  onClick={() => openRFQ()}
                   className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-black px-6 py-3 rounded text-xs uppercase tracking-widest transition-all shadow-lg"
                 >
                   Request Official Proposal

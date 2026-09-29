@@ -12,6 +12,7 @@ interface HeaderProps {
 }
 
 export const Header: React.FC<HeaderProps> = ({ onOpenSearch = () => {} }) => {
+  const { openRFQ } = useRFQ();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [epcOpen, setEpcOpen] = useState(false);
   const [supplyChainOpen, setSupplyChainOpen] = useState(false);

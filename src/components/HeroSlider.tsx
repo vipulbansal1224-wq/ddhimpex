@@ -10,6 +10,8 @@ interface HeroSliderProps {
 }
 
 export const HeroSlider: React.FC<HeroSliderProps> = ({  }) => {
+  const { openRFQ } = useRFQ();
+
   const [activeSlide, setActiveSlide] = useState(0);
 
   const bannerSlides = [
@@ -101,7 +103,7 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({  }) => {
                   </Link>
 
                   <button
-                    onClick={openRFQ}
+                    onClick={() => openRFQ()}
                     className="inline-flex items-center space-x-2 bg-white hover:bg-slate-100 text-slate-950 text-sm font-extrabold uppercase tracking-widest px-6 py-3.5 rounded shadow transition-all"
                   >
                     <span>Get Quote</span>
