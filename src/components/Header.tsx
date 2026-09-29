@@ -170,7 +170,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch = () => {} }) => {
                 <div>
                   <div className="text-xs font-black text-[#0228d2] uppercase tracking-wider border-b border-slate-200 pb-2 mb-3 flex items-center justify-between">
                     <span>Industrial Chemicals</span>
-                    <Package className="w-3.5 h-3.5 text-[#0228d2]" /></div><div className="mb-3 h-24 rounded-lg overflow-hidden relative border border-slate-200"><img src="https://images.unsplash.com/photo-1618055627670-381e4b855be7?auto=format&fit=crop&q=80&w=400&h=200" alt="Industrial Chemicals" className="object-cover w-full h-full hover:scale-105 transition-transform duration-500" />
+                    <Package className="w-3.5 h-3.5 text-[#0228d2]" /></div><div className="mb-3 h-24 rounded-lg overflow-hidden relative border border-slate-200"><img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&q=80&w=400&h=200" alt="Industrial Chemicals" className="object-cover w-full h-full hover:scale-105 transition-transform duration-500" />
                   </div>
                   <ul className="space-y-1 text-xs text-slate-700 font-semibold">
                     <li><Link href="/products/mining-chemicals" className="block py-1 hover:text-[#0228d2] hover:bg-slate-50 px-1 rounded transition-colors">• Mining Chemicals (MIBC, MEK)</Link></li>
@@ -192,7 +192,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch = () => {} }) => {
                 <div>
                   <div className="text-xs font-black text-[#0228d2] uppercase tracking-wider border-b border-slate-200 pb-2 mb-3 flex items-center justify-between">
                     <span>Speciality Chemicals</span>
-                    <Sparkles className="w-3.5 h-3.5 text-[#0228d2]" /></div><div className="mb-3 h-24 rounded-lg overflow-hidden relative border border-slate-200"><img src="https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?auto=format&fit=crop&q=80&w=400&h=200" alt="Speciality Chemicals" className="object-cover w-full h-full hover:scale-105 transition-transform duration-500" />
+                    <Sparkles className="w-3.5 h-3.5 text-[#0228d2]" /></div><div className="mb-3 h-24 rounded-lg overflow-hidden relative border border-slate-200"><img src="https://images.unsplash.com/photo-1584473457406-6240486418e9?auto=format&fit=crop&q=80&w=400&h=200" alt="Speciality Chemicals" className="object-cover w-full h-full hover:scale-105 transition-transform duration-500" />
                   </div>
                   <ul className="space-y-1 text-xs text-slate-700 font-semibold">
                     <li><Link href="/products/acrylate" className="block py-1 hover:text-[#0228d2] hover:bg-slate-50 px-1 rounded transition-colors">• Acrylate (2-EHA, MAA, PMMA)</Link></li>
