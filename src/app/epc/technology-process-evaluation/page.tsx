@@ -115,7 +115,7 @@ export default function ProcessEvaluationPage({  }: PageProps) {  const { openRF
             <p className="text-xs text-slate-400 mt-1">Our expert consultants evaluate your chemical processing plant or manufacturing workflows.</p>
           </div>
           <button
-            onClick={() => ('Technology & Process Evaluation Audit')}
+            onClick={() => openRFQ()}
             className="px-6 py-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs uppercase tracking-wider transition-colors shrink-0"
           >
             Request Technical Audit

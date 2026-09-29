@@ -60,7 +60,7 @@ export default function FoodProductsPage({  }: PageProps) {  const { openRFQ } =
               </div>
 
               <button
-                onClick={() => (prod.name)}
+                onClick={() => openRFQ()}
                 className="w-full py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center space-x-2"
               >
                 <span>Request Food Export Sample / Quote</span>

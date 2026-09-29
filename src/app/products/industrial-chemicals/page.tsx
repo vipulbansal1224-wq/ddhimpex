@@ -65,7 +65,7 @@ export default function IndustrialChemicalsPage({  }: PageProps) {  const { open
                     <td className="py-4 px-4 text-xs text-slate-400">{prod.packingType}</td>
                     <td className="py-4 px-4 text-right">
                       <button
-                        onClick={() => (prod.name)}
+                        onClick={() => openRFQ()}
                         className="px-3.5 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs uppercase tracking-wider transition-colors inline-flex items-center space-x-1"
                       >
                         <span>RFQ</span>

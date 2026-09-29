@@ -92,7 +92,7 @@ export default function EngineeringPage({  }: PageProps) {  const { openRFQ } = 
             </div>
 
             <button
-              onClick={() => ('Basic & Detailed Engineering')}
+              onClick={() => openRFQ()}
               className="w-full py-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center space-x-2"
             >
               <FileText className="w-4 h-4" />

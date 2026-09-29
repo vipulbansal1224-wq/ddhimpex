@@ -56,7 +56,7 @@ export default function FertilizersPage({  }: PageProps) {  const { openRFQ } = 
                     <td className="py-3.5 px-4 text-xs">{p.packingType}</td>
                     <td className="py-3.5 px-4 text-right">
                       <button
-                        onClick={() => (p.name)}
+                        onClick={() => openRFQ()}
                         className="px-3 py-1.5 rounded bg-[#0228d2] hover:bg-blue-700 text-white font-bold text-xs uppercase tracking-wider inline-flex items-center space-x-1"
                       >
                         <span>RFQ</span>

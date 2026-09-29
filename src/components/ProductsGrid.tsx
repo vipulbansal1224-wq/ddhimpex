@@ -16,6 +16,8 @@ export const ProductsGrid: React.FC<ProductsGridProps> = ({
   limit,
   showCategoryTabs = true 
 }) => {
+  const { openRFQ } = useRFQ();
+
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<'all' | 'industrial' | 'specialty' | 'food'>('all');
 
@@ -174,7 +176,7 @@ export const ProductsGrid: React.FC<ProductsGridProps> = ({
 
                 {/* RFQ Trigger */}
                 <button
-                  onClick={() => (product.name)}
+                  onClick={() => openRFQ()}
                   className="w-full py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-amber-500 hover:text-slate-950 text-slate-200 font-bold text-xs uppercase tracking-wider border border-slate-800 hover:border-amber-500 transition-all flex items-center justify-center space-x-2"
                 >
                   <span>Request RFQ / Quote</span>

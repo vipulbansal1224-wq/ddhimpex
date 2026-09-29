@@ -79,7 +79,7 @@ export default function EPCBranchPage({  }: EPCBranchPageProps) {  const { openR
             </div>
 
             <button
-              onClick={() => (service.title)}
+              onClick={() => openRFQ()}
               className="w-full py-3.5 bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xs uppercase tracking-widest rounded shadow transition-colors flex items-center justify-center space-x-2"
             >
               <FileText className="w-4 h-4" />

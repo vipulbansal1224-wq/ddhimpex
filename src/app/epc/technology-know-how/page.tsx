@@ -96,7 +96,7 @@ export default function TechKnowHowPage({  }: PageProps) {  const { openRFQ } = 
 
         <div className="text-center pt-8">
           <button
-            onClick={() => ('Infrastructure & Tech Know-How Master Planning')}
+            onClick={() => openRFQ()}
             className="px-8 py-4 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold text-sm uppercase tracking-wider transition-colors shadow-lg shadow-amber-500/20"
           >
             Consult Infrastructure Master Planner
