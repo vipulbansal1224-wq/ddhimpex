@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { PRODUCTS_DATA, Product } from '@/data/productsData';
+import { PRODUCTS_DATA, ProductItem } from '@/data/productsData';
 import { Package, Search, Filter, ArrowRight, ShieldCheck, Beaker, Sparkles, Tag } from 'lucide-react';
 
 interface ProductsGridProps {
