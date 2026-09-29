@@ -1,24 +1,13 @@
-'use client';
-import { useRFQ } from '@/context/RFQContext';
+const fs = require('fs');
+let content = fs.readFileSync('src/app/products/food-products/page.tsx', 'utf8');
 
-import React from 'react';
-import { PRODUCTS_DATA } from '@/data/productsData';
-import { Package, Globe, Tag, ArrowRight, CheckCircle2 } from 'lucide-react';
-import { CategoryHeroSlider } from '@/components/CategoryHeroSlider';
+content = content.replace(
+  /import \{ Package, Globe, Tag, ArrowRight, CheckCircle2 \} from 'lucide-react';/,
+  "import { Package, Globe, Tag, ArrowRight, CheckCircle2 } from 'lucide-react';\nimport { CategoryHeroSlider } from '@/components/CategoryHeroSlider';"
+);
 
-interface PageProps {
-  
-}
-
-export default function FoodProductsPage({  }: PageProps) {  const { openRFQ } = useRFQ();
-
-  const foodProducts = PRODUCTS_DATA.filter(p => p.category === 'food');
-
-  return (
-    <div className="pt-24 pb-20 bg-slate-950 text-white min-h-screen">
-      
-      {/* Header Banner */}
-            <CategoryHeroSlider 
+const oldBanner = /<div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 border-b border-slate-800">[\s\S]*?<\/div>\s*<\/div>/;
+const newBanner = `      <CategoryHeroSlider 
         title="Premium Indian Basmati Rice, Spices & Commodities"
         subtitle="Fast-moving consumer packaged food items carefully manufactured and selected to international quality standards under dynamic export brands."
         categoryTag="FMCG & CONSUMER PACKAGED FOODS"
@@ -27,11 +16,12 @@ export default function FoodProductsPage({  }: PageProps) {  const { openRFQ } =
           'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&q=80&w=1600&h=600',
           'https://images.unsplash.com/photo-1563822249548-9a72b6353cd1?auto=format&fit=crop&q=80&w=1600&h=600'
         ]}
-      />
+      />`;
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 space-y-12">
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+content = content.replace(oldBanner, newBanner);
+
+const oldGrid = /<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">[\s\S]*?<\/div>\s*<\/div>\s*<\/div>/;
+const newGrid = `<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {foodProducts.map((prod) => (
             <div 
               key={prod.id}
@@ -79,6 +69,8 @@ export default function FoodProductsPage({  }: PageProps) {  const { openRFQ } =
           ))}
         </div>
       </div>
-    </div>
-  );
-}
+    </div>`;
+
+content = content.replace(oldGrid, newGrid);
+
+fs.writeFileSync('src/app/products/food-products/page.tsx', content, 'utf8');

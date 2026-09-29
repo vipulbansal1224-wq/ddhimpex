@@ -7,6 +7,7 @@ export interface ProductItem {
   packingType: string;
   description: string;
   applications: string[];
+  image?: string;
   popular?: boolean;
 }
 
@@ -831,6 +832,7 @@ export const ALL_CATEGORIES_DATA: CategoryDetail[] = [
     products: [
       {
         id: 'basmati-rice',
+        image: 'https://images.unsplash.com/photo-1586201375761-83865001e8ac?auto=format&fit=crop&q=80&w=600&h=400',
         name: 'Premium Basmati Rice',
         category: 'food',
         subcategory: 'Grains & Rice',
@@ -841,6 +843,7 @@ export const ALL_CATEGORIES_DATA: CategoryDetail[] = [
       },
       {
         id: 'non-basmati-rice',
+        image: 'https://images.unsplash.com/photo-1536304929831-ee1ca9d44906?auto=format&fit=crop&q=80&w=600&h=400',
         name: 'Non-Basmati Rice (IR64 / Parboiled)',
         category: 'food',
         subcategory: 'Grains & Rice',
@@ -850,6 +853,7 @@ export const ALL_CATEGORIES_DATA: CategoryDetail[] = [
       },
       {
         id: 'tea',
+        image: 'https://images.unsplash.com/photo-1563822249548-9a72b6353cd1?auto=format&fit=crop&q=80&w=600&h=400',
         name: 'Assam & Darjeeling Indian Teas',
         category: 'food',
         subcategory: 'Beverages',
@@ -859,6 +863,7 @@ export const ALL_CATEGORIES_DATA: CategoryDetail[] = [
       },
       {
         id: 'spices',
+        image: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&q=80&w=600&h=400',
         name: 'Whole & Ground Indian Spices',
         category: 'food',
         subcategory: 'Spices',
